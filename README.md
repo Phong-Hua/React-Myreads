@@ -2,7 +2,10 @@
 
 This project is completed as an requirement to pass the final assessment for Udacity's React Fundamentals course. It was developed by using the template with static example of the CSS and HTML that is provided by Udacity.
 
-# Features
+## Features
+
+The mainpage shows a list books which is catergorized into three shelves: currently reading, want to read and read. Reader can move a book between shelves by click on a little green button on the bottom right corner of everybook.
+On the bottom right corner of the mainpage, there is a button to search for books to add to shelves. Currently, the search function result is limit to 20 books and only available to some search terms (SEARCH_TERMS.md).
 
 ## TL;DR
 
