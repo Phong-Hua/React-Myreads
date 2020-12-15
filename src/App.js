@@ -15,6 +15,7 @@ class BooksApp extends React.Component {
     }
     this.shelves = ['currentlyReading', 'wantToRead', 'read', 'none'];
     this.moveBookFunction = this.moveBookFunction.bind(this)
+    this.getShelfOfBookFunction = this.getShelfOfBookFunction.bind(this)
   }
 
   componentDidMount() {
@@ -47,7 +48,7 @@ class BooksApp extends React.Component {
    * Return 'NONE' if no book match.
    * @param {*} id 
    */
-  async getShelfOfBookFunction(id)
+  getShelfOfBookFunction(id)
   {
     for(var i=0; i < this.state.books.length; i++)
     {
@@ -103,7 +104,6 @@ class BooksApp extends React.Component {
   }
 
   closeSearchFunction(history) {
-    console.log("Close search")
     history.push('/')
   }
 
@@ -123,6 +123,7 @@ class BooksApp extends React.Component {
               shelves={this.shelves}
 
             />)}/>
+
         <Route path='/search' render={({history})=>(
             <SearchBar 
                 moveBookFunction={this.moveBookFunction} 

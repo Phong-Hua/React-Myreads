@@ -18,11 +18,9 @@ function MainPage(props) {
                     <BookShelf shelfTitle='Read' books={readBooks} moveBookFunction={moveBookFunction} shelves={shelves} getShelfOfBookFunction={getShelfOfBookFunction}/>
                 </div>
             </div>
-            <Link to='/search'  className="open-search">Add a book</Link>
-            {/* <button className="open-search"></button> */}
-            {/* <div className="open-search">
-                <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-            </div> */}
+            <Link to='/search' className="open-search" >
+                <button>Add a book</button>
+            </Link>
         </div>
     )
 }
@@ -30,7 +28,10 @@ function MainPage(props) {
 MainPage.propTypes = {
     currentlyReadingBooks: PropTypes.array.isRequired,
     wantToReadBooks: PropTypes.array.isRequired,
-    readBooks: PropTypes.array.isRequired
+    readBooks: PropTypes.array.isRequired,
+    moveBookFunction: PropTypes.func.isRequired,
+    shelves: PropTypes.array.isRequired,
+    getShelfOfBookFunction: PropTypes.func.isRequired
 }
 
 export default MainPage;

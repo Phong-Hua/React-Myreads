@@ -7,9 +7,8 @@ function Book(props) {
 
     var imageWidth = 128, imageHeight = 193;
 
-    var {book, moveBookFunction, shelves, index, getShelfOfBookFunction} = props;
+    var {book, moveBookFunction, shelves, getShelfOfBookFunction} = props;
     
-    console.log(index)
     var authors = (book['authors']) ? (book['authors'].toString()) : '';
     var title = (book['title']) ? book['title'] : '';
     var imageThumbnail = (book['imageLinks'] && book['imageLinks']['thumbnail']) ? book['imageLinks']['thumbnail'] : '';
@@ -20,12 +19,11 @@ function Book(props) {
         <li>
             <div className="book">
             <div className="book-top">
-                <div className="book-cover" style={{ width: imageWidth, height: imageHeight, backgroundImage: url }}></div>
+                <div className="book-cover" style={{ width: imageWidth, height: imageHeight, backgroundImage: url}}></div>
                 <MoveOptions 
                     book={book} 
                     moveBookFunction={moveBookFunction}
                     shelves={shelves}
-                    index={index}
                     getShelfOfBookFunction={getShelfOfBookFunction}
                 />
             </div>
@@ -40,7 +38,7 @@ Book.propTypes = {
     book: PropTypes.object.isRequired,
     moveBookFunction: PropTypes.func.isRequired,
     shelves: PropTypes.array.isRequired,
-    getShelfOfBookFunction: PropTypes.func
+    getShelfOfBookFunction: PropTypes.func.isRequired
 }
 
 export default Book;

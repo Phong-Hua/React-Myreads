@@ -7,26 +7,25 @@ class SearchBar extends Component {
 
     static propTypes = {
         shelves: PropTypes.array.isRequired,
-        getShelfOfBookFunction: PropTypes.func.isRequired
+        getShelfOfBookFunction: PropTypes.func.isRequired,
+        closeSearchFunction: PropTypes.func.isRequired,
+        moveBookFunction: PropTypes.func.isRequired,
     }
     
     constructor(props) {
 
         super(props)
-        this.shelves= props.shelves
-        this.getShelfOfBookFunction = props.getShelfOfBookFunction
+        this.shelves= props.shelves;
+        this.getShelfOfBookFunction = props.getShelfOfBookFunction;
+        this.moveBookFunction = props.moveBookFunction;
+        this.closeSearchFunction = props.closeSearchFunction;
 
         this.state = {
             invalidQuery : false,
             booksToDisplay : [],
         }
-        this.closeSearchFunction = props.closeSearchFunction;
     }
 
-    componentDidMount() {
-        // this.fetchBookFunction();
-        console.log('update12')
-    }
 
     handleInput = (event) => {
 
@@ -116,7 +115,7 @@ class SearchBar extends Component {
                     this.state.booksToDisplay.length > 0 && (
                         <BookList 
                             books={this.state.booksToDisplay} 
-                            moveBookFunction={this.props.moveBookFunction}
+                            moveBookFunction={this.moveBookFunction}
                             shelves={this.shelves}
                             getShelfOfBookFunction = {this.getShelfOfBookFunction}
                         />

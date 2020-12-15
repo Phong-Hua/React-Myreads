@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import * as BooksAPI from './BooksAPI'
 
 class MoveOptions extends Component{
+
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        shelves: PropTypes.array.isRequired,
+        moveBookFunction: PropTypes.func.isRequired,
+        getShelfOfBookFunction: PropTypes.func.isRequired
+    }
 
     constructor(props){
         super(props);
@@ -10,13 +16,11 @@ class MoveOptions extends Component{
         this.shelves = props.shelves;
         this.moveBookFunction = props.moveBookFunction;
         this.book = props.book;
-        this.index = props.index;
 
         this.getShelfOfBookFunction = props.getShelfOfBookFunction
-
+        this.getShelfOfBookFunction = this.getShelfOfBookFunction.bind(this)
         this.state = {
             shelf: props.getShelfOfBookFunction(this.book['id'])
-            // shelf: (this.book['shelf']) ? this.book['shelf'] : this.shelves[3]
         }
         
     }
@@ -27,17 +31,7 @@ class MoveOptions extends Component{
      * @param {*} event 
      */
     handleMoveFunction(event){
-
-        /**
-         * This one work
-         */
-        // this.setState({shelf: event.target.value}, ()=>{
-        //     this.moveBookFunction(this.book, this.state.shelf)
-        // })
-
-        /**
-         * This one work, too.
-         */
+       
         var newShelf = event.target.value;
         if (this.state.shelf !== newShelf)
         {
@@ -57,14 +51,9 @@ class MoveOptions extends Component{
                     <option value={this.shelves[2]} >Read</option>
                     <option value={this.shelves[3]} >None</option>
                 </select>
-                <button onClick={() => {console.log(this.book['title'] +', '+ this.state.shelf +', ' + this.index)}} > Click here </button>
             </div>
         )
     }
-}
-
-MoveOptions.propTypes = {
-    book: PropTypes.object.isRequired
 }
 
 export default MoveOptions;

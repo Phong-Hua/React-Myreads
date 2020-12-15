@@ -24,7 +24,9 @@ function BookShelf(props) {
 BookShelf.propTypes = {
     shelfTitle: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
-    moveBookFunction: PropTypes.func.isRequired
+    moveBookFunction: PropTypes.func.isRequired,
+    shelves: PropTypes.array.isRequired,
+    getShelfOfBookFunction: PropTypes.func.isRequired
 }
 
 export default BookShelf;
