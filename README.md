@@ -9,7 +9,7 @@ On the bottom right corner of the mainpage, there is a button to search for book
 
 ## TL;DR
 
-To get started developing right away:
+To run the project:
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
@@ -23,9 +23,16 @@ To get started developing right away:
 ├── public
 │   ├── favicon.ico # React Icon, You may change if you wish.
 │   └── index.html # DO NOT MODIFY
-└── src
+└── original # The original templates which was provided by Udacity
+└── src 
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── MainPage.js # A component renders three book shelves(currently reading, want to read and read) and a search button.
+    ├── BookShelf.js # A component render shelf name and book on that shelf
+    ├── BookList.js # A component which render all the books for a shelf
+    ├── Book.js # A component to display book info
+    ├── MoveOptions.js # A component to display all move options (currently reading, want to read, read and none)
+    ├── SearchBar.js # Rendering search buttons
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
